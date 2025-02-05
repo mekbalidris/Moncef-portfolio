@@ -1,0 +1,114 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+body {
+    font-family: 'pacifico', cursive;
+    background-color: black;
+    overflow-x: hidden;
+}
+
+li{
+    list-style: none;
+}
+
+/* Default dots */
+.swiper-pagination-bullet {
+    background: rgb(255, 255, 255) !important;
+    transition: all 0.3s ease;
+}
+  
+  /* Active dot */
+.swiper-pagination-bullet-active {
+    transform: scale(1.3);
+}
+
+.swiper-wrapper{
+    perspective: 1000px;
+}
+  
+
+:root{
+    --squarecolor : rgba(255, 255, 255, 0.055);
+}
+
+.family-poppins {
+    font-family: 'Poppins', sans-serif;
+}
+
+.custom-prev{
+    @apply absolute mr-[85%] text-4xl z-10 hover:cursor-pointer;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.custom-next{
+    @apply absolute ml-[85%] text-4xl z-10 hover:cursor-pointer;
+    color: rgba(255, 255, 255, 0.5);
+    transition: all ease-out 0.2s;
+}
+
+.custom-prev:hover,.custom-next:hover{
+    cursor: pointer;
+    color: rgba(255, 255, 255, 1);
+}
+
+.glass-effect {
+    background: rgba(49, 49, 49, 0.664);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.Sef{
+    font-family: 'pacifico', cursive;
+    font-weight: bold;
+}
+
+.UnderSef{
+    font-family: 'pacifico', cursive;
+    font-weight: light;
+    font-size: small;
+}
+
+.text{
+    font-family: 'poppins', sans-serif;
+    font-weight: bold;
+    z-index: 10;
+}
+
+
+.bg-home {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(1.5px);
+    z-index: -1;
+    mask-image: url('C:/Users/idris/OneDrive/Desktop/Potfolio-sef/sef/src/assets/splash.png');
+    mask-size: cover;
+    mask-position: center;
+    mask-repeat: no-repeat; 
+}
+  .bg-home::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+
+
+@layer components {
+
+    .textnav{
+        @apply bg-black rounded-2xl px-3 py-1;
+    }
+
+}
+
