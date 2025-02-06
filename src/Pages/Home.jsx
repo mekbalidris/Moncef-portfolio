@@ -54,7 +54,7 @@ export default function Home() {
               ))}
             </Canvas>
           </div>*/}
-          <div className="text-left flex flex-col gap-10 p-10 rounded-3xl">
+          <div className="text-left flex flex-col gap-10 p-10 pt-30 rounded-3xl">
             <p className="text-3xl z-10">Moncef Deghdach</p>
             <div className="text text-white text-xl w-105">
               Hey! I’m Sef, and I create videos that make your brand shine. Whether it’s animations or 3D visuals, my team and I are here to bring your ideas to life.
