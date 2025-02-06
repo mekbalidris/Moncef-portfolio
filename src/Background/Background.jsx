@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 export default function Background() {
   const cols = Math.floor(window.innerWidth / 40);
   const squareSize = window.innerWidth / cols;
-  const rows = Math.ceil(window.innerHeight*5 / squareSize);
+  const rows = Math.ceil(window.innerHeight*4 / squareSize);
   const total = rows * cols + 15;
 
   // State to store the indices of transparent squares
