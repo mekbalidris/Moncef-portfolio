@@ -36,9 +36,9 @@ function App() {
       <div className="flex flex-col">
         <Home />
         <div className="mt-60">
-        <Project videos={videos3D} name={name[0]} num={3} />
-        <Project videos={videosmotion} name={name[1]} num={3} />
-        <Project videos={videosediting} name={name[2]} num={3} />
+        <Project videos={videos3D} name={name[0]} />
+        <Project videos={videosmotion} name={name[1]} />
+        <Project videos={videosediting} name={name[2]} />
         </div>
         <Contact />
       </div>

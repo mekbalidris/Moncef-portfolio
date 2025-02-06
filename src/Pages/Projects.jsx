@@ -5,7 +5,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "../App.css";
 
-export default function Project({ videos, name, num }) {
+export default function Project({ videos, name }) {
+    const uniqueId = Math.random().toString(36).substr(2, 9); 
+  
     return (
       <div className="min-h-screen w-screen flex flex-col items-center justify-center relative">
         <div className="text-center text-white text-4xl">{name}</div>
@@ -15,13 +17,13 @@ export default function Project({ videos, name, num }) {
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             navigation={{
-              prevEl: ".custom-prev",
-              nextEl: ".custom-next",
+              prevEl: `.custom-prev-${uniqueId}`,
+              nextEl: `.custom-next-${uniqueId}`,
             }}
             pagination={{ clickable: true }}
             autoplay={false}
             spaceBetween={20}
-            slidesPerView={num}
+            slidesPerView={3}
             loop={true}
             centeredSlides={true}
             className="w-4/5 h-[25rem]"
@@ -32,12 +34,15 @@ export default function Project({ videos, name, num }) {
                 if (index === swiper.activeIndex) {
                   slide.style.transform = "scale(1) rotate(0deg)";
                   slide.style.filter = "blur(0px)";
+                  slide.style.pointerEvents = "auto"
                 } else if (index === swiper.activeIndex - 1) {
                   slide.style.transform = "scale(0.7) rotateY(30deg)";
                   slide.style.filter = "blur(4px)";
+                  slide.style.pointerEvents = "none"
                 } else if (index === swiper.activeIndex + 1) {
                   slide.style.transform = "scale(0.7) rotateY(-80deg)";
                   slide.style.filter = "blur(4px)";
+                  slide.style.pointerEvents = "none"
                 }
               });
             }}
@@ -59,10 +64,10 @@ export default function Project({ videos, name, num }) {
           </Swiper>
   
           {/* Custom Navigation Buttons */}
-          <button className="custom-prev">
+          <button className={`custom-prev-${uniqueId}`} id="custom-prev">
             ❮
           </button>
-          <button className="custom-next">
+          <button className={`custom-next-${uniqueId}`} id="custom-next">
             ❯
           </button>
         </div>
