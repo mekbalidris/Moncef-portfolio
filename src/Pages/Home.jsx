@@ -40,7 +40,7 @@ export default function Home() {
 
         {/* Main Content */}
         <div className="Software flex-col text-white mr-140 mb-10 w-100">
-          <div className="mr-150 w-full">
+          {/*<div className="mr-150 w-full">
             <Canvas camera={{ position: [0, 0, 20], fov: 75 }}>
               <ambientLight intensity={1.5} />
               <directionalLight position={[10, 10, 4]} />
@@ -53,7 +53,7 @@ export default function Home() {
                 />
               ))}
             </Canvas>
-          </div>
+          </div>*/}
           <div className="text-left flex flex-col gap-10 p-10 rounded-3xl">
             <p className="text-3xl z-10">Moncef Deghdach</p>
             <div className="text text-white text-xl w-105">
