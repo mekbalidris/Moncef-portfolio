@@ -2,9 +2,24 @@ import "./Background.css";
 import { useState, useEffect } from 'react';
 
 export default function Background() {
+  const [isPhone, setIsPhone] = useState(window.innerWidth <= 900);
+      const handleResize = () => {
+        setIsPhone(window.innerWidth <= 900);
+      };
+      useEffect(() => {
+        handleResize();
+        window.addEventListener('resize', handleResize);
+    
+        return () => {
+    
+          window.removeEventListener('resize', handleResize);
+        };
+      }, );
+
+
   const cols = Math.floor(window.innerWidth / 40);
   const squareSize = window.innerWidth / cols;
-  const rows = Math.ceil(window.innerHeight*4 / squareSize);
+  const rows = Math.ceil(window.innerHeight*5 / squareSize);
   const total = rows * cols + 15;
 
   // State to store the indices of transparent squares
@@ -34,7 +49,7 @@ export default function Background() {
         top: 0,
         left: 0,
         width: '100vw',
-        height: '500vh',
+        height: isPhone ? "483vh" : "505vh",
         overflow: 'hidden',
         backgroundColor: 'black',
       }}

@@ -93,15 +93,15 @@ export default function Nav() {
         {isPhone ? (
           <>
             {/* Download CV Button - Top Left on Mobile */}
-            <div className="absolute left-0 p-4">
-              <button className="bg-blue-500 text-white px-2 py-[5%] rounded-4xl hover:bg-blue-600 text-[12px]">
+            <div className="absolute right-0 p-4">
+              <button className="bg-blue-500 text-white px-2 py-[5%] rounded-4xl hover:bg-blue-600 text-[15px]">
                 Download CV
               </button>
             </div>
 
             {/* Hamburger Menu - Top Right on Mobile */}
-            <div className="absolute right-0 text-white">
-            <div className='absolute right-0 p-4'>
+            <div className="absolute left-0 text-white">
+            <div className='absolute text-4xl pl-5 pt-2'>
               <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
                 ☰
               </button>
