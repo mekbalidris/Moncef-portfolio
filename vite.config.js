@@ -8,6 +8,6 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
-  base: "/Moncef-porfolio/",
+  base: "./",
   assetsInclude: ['**/*.glb'],
 })
