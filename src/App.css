@@ -120,14 +120,14 @@ li{
 
   .blob-container {
     position: absolute;
-    bottom: 0%;
-    right: 14%;
-    width: 200px; /* Adjust size as needed */
+    bottom: 0;
+    width: 100%; /* Adjust size as needed */
     height: 200px;
+    max-width: 100%; /* Ensure it doesn't overflow */
   }
   
   .blob {
-    width: 250%;
+    width: 200%;
     height: 250%;
   }
   .blob-container img {

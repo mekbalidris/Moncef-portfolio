@@ -1,18 +1,20 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
+import "../App.css";
 
 const links = ['home', 'projects', 'contact'];
 const sections = {
   home: 0,
   projects: window.innerHeight, // 100vh
-  contact: window.innerHeight * 4, // 400vh
+  contact: window.innerHeight * 5, // 400vh
 };
 
 export default function Nav() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState('home');
   const [indicatorStyle, setIndicatorStyle] = useState({ width: 0, left: 0 });
-  const [isPhone, setIsPhone] = useState(false);
+  const [isPhone, setIsPhone] = useState(window.innerWidth <= 900);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu
   const navRef = useRef(null);
 
   const handleNavScroll = () => {
@@ -20,7 +22,7 @@ export default function Nav() {
   };
 
   const handleResize = () => {
-    setIsPhone(window.innerWidth <= 750);
+    setIsPhone(window.innerWidth <= 900);
   };
 
   const scrollToSection = (link) => {
@@ -32,6 +34,7 @@ export default function Nav() {
     setActiveLink(link);
     scrollToSection(link);
     updateIndicatorPosition(index);
+    setIsMenuOpen(false); // Close mobile menu after clicking a link
   };
 
   const updateIndicatorPosition = (index) => {
@@ -65,6 +68,7 @@ export default function Nav() {
   };
 
   useEffect(() => {
+    handleResize(); // Set initial isPhone state
     window.addEventListener('scroll', handleNavScroll);
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
@@ -78,14 +82,53 @@ export default function Nav() {
 
   return (
     <div className="h-100 flex flex-row z-10">
-      <div className="p-2.5 ml-10 mt-1 text-4xl text-white">
+      {/* Logo - Centered on Mobile */}
+      <div className={`p-2.5 mt-1 text-4xl text-white ${isPhone ? 'mx-auto' : 'ml-10'}`}>
         <p className="Sef">Sef</p>
         <p className="UnderSef">Production</p>
       </div>
 
-      <div className="flex fixed flex-row p-4 justify-center align-middle w-full">
+      {/* Navigation Links */}
+      <div className="flex fixed flex-row p-4 justify-center align-middle w-screen">
         {isPhone ? (
-          <div className="text-white">mobile</div>
+          <>
+            {/* Download CV Button - Top Left on Mobile */}
+            <div className="absolute left-0 p-4">
+              <button className="bg-blue-500 text-white px-2 py-[5%] rounded-4xl hover:bg-blue-600 text-[12px]">
+                Download CV
+              </button>
+            </div>
+
+            {/* Hamburger Menu - Top Right on Mobile */}
+            <div className="absolute right-0 text-white">
+            <div className='absolute right-0 p-4'>
+              <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                ☰
+              </button>
+            </div>
+
+              {/* Mobile Menu */}
+              {isMenuOpen && (
+                <ul className="flex flex-col space-y-4 mt-4 bg-gray-800 p-4 rounded-lg text-center w-screen">
+            {links.map((link, index) => (
+              <li
+                key={link}
+                className={`cursor-pointer px-4 py-2 text-white ${
+                  activeLink === link ? 'font-bold' : ''
+                }`}
+                onClick={() => {
+                  setActiveLink(link);
+                  setIsMenuOpen(false);
+                  window.scrollTo({ top: sections[link] || 0, behavior: 'smooth' });
+                }}
+              >
+                {link.charAt(0).toUpperCase() + link.slice(1)}
+              </li>
+            ))}
+          </ul>
+              )}
+            </div>
+          </>
         ) : (
           <div
             className={`h-10.5 align-middle w-120 rounded-2xl transition duration-500 ${
@@ -118,11 +161,14 @@ export default function Nav() {
         )}
       </div>
 
-      <div className="absolute right-8 p-4 mt-1">
-        <button className="bg-blue-500 text-white px-4 py-2 rounded-4xl hover:bg-blue-600">
-          Download CV
-        </button>
-      </div>
+      {/* Download CV Button - Top Right on Desktop */}
+      {!isPhone && (
+        <div className="absolute right-8 p-4 mt-1">
+          <button className="bg-blue-500 text-white px-4 py-2 rounded-4xl hover:bg-blue-600">
+            Download CV
+          </button>
+        </div>
+      )}
     </div>
   );
 }

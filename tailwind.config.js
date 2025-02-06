@@ -10,7 +10,7 @@ export default {
           poppins: ["Poppins"],
         },
         screens:{
-          mid: '750px',
+          phone: '900px',
         }
       },
     },

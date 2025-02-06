@@ -17,12 +17,14 @@ function App() {
     { type: "vimeo", url: "https://player.vimeo.com/video/1046119349" },
     { type: "vimeo", url: "https://player.vimeo.com/video/1046118255" },
     { type: "vimeo", url: "https://player.vimeo.com/video/1046120312" },
+    { type: "vimeo", url: "https://player.vimeo.com/video/1046118255" },
   ];
 
   const videosediting = [
     { type: "vimeo", url: "https://player.vimeo.com/video/1046119237" },
     { type: "vimeo", url: "https://player.vimeo.com/video/1046120327" },
-    { type: "vimeo", url: "https://player.vimeo.com/video/1046120312" },
+    { type: "vimeo", url: "https://player.vimeo.com/video/1046119237" },
+    { type: "vimeo", url: "https://player.vimeo.com/video/1046120327" },
   ];
 
   const name = ["3D Projects", "motion graphics", "Video editing"];
