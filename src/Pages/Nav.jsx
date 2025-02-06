@@ -6,7 +6,7 @@ const links = ['home', 'projects', 'contact'];
 const sections = {
   home: 0,
   projects: window.innerHeight, // 100vh
-  contact: window.innerHeight * 5, // 400vh
+  contact: window.innerHeight * 4, // 400vh
 };
 
 export default function Nav() {

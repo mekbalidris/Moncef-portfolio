@@ -49,7 +49,7 @@ export default function Background() {
         top: 0,
         left: 0,
         width: '100vw',
-        height: isPhone ? "483vh" : "505vh",
+        height: isPhone ? "217rem" : "505vh",
         overflow: 'hidden',
         backgroundColor: 'black',
       }}
