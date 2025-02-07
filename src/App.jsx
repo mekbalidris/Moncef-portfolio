@@ -32,7 +32,7 @@ function App() {
   return (
     <>
       <Background />
-      <div style={{ position: "relative", zIndex: 10 }}>
+      <div style={{ position: "relative", zIndex: 20 }}>
         <Nav />
       </div>
       <div className="flex flex-col">

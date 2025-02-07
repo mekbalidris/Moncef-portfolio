@@ -109,17 +109,18 @@ export default function Nav() {
 
               {/* Mobile Menu */}
               {isMenuOpen && (
-                <ul className="flex flex-col space-y-4 mt-4 bg-gray-800 p-4 rounded-lg text-center w-screen">
+                <ul className="flex flex-col text-4xl family-poppins space-y-4 mt-4 bg-gray-800 p-4 rounded-lg text-center w-screen" >
             {links.map((link, index) => (
               <li
                 key={link}
-                className={`cursor-pointer px-4 py-2 text-white ${
-                  activeLink === link ? 'font-bold' : ''
-                }`}
                 onClick={() => {
                   setActiveLink(link);
                   setIsMenuOpen(false);
                   window.scrollTo({ top: sections[link] || 0, behavior: 'smooth' });
+                }}
+                style={{
+                  marginTop:"20px",
+                  borderBottom:"solid white 1px"
                 }}
               >
                 {link.charAt(0).toUpperCase() + link.slice(1)}
